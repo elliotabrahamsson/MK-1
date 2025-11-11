@@ -19,7 +19,7 @@
 
 .category-title {
   font-size: 1.5rem;
-  color: #667eea;
+  color: #091b6d;
   margin-bottom: 1.5rem;
   text-align: center;
   padding-bottom: 1rem;
@@ -65,7 +65,7 @@
 
 .skill-progress {
   height: 100%;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(90deg, #091b6d 0%, #764ba2 100%);
   border-radius: 10px;
   transition: width 1s ease;
 }

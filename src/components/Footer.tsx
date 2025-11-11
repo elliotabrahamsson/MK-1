@@ -1,5 +1,5 @@
-import React from 'react';
-import '../styles/Footer.css';
+import React from "react";
+import "../styles/Footer.css";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -7,7 +7,9 @@ const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="container">
-        <p>&copy; {currentYear} Personal Portfolio. Built with React & TypeScript.</p>
+        <p>
+          &copy; {currentYear} Portfolio MK 1. Built with React & TypeScript.
+        </p>
       </div>
     </footer>
   );

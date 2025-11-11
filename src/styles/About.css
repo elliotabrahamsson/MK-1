@@ -17,11 +17,11 @@
 }
 
 .section-title::after {
-  content: '';
+  content: "";
   display: block;
   width: 60px;
   height: 4px;
-  background: #667eea;
+  background: #091b6d;
   margin: 1rem auto 0;
 }
 
@@ -34,7 +34,7 @@
 
 .about-text h3 {
   font-size: 2rem;
-  color: #667eea;
+  color: #091b6d;
   margin-bottom: 0.5rem;
 }
 
@@ -71,7 +71,7 @@
 .stat-number {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #667eea;
+  color: #091b6d;
 }
 
 .stat-label {

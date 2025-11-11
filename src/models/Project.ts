@@ -74,9 +74,9 @@ export class Project {
   }
 
   getFormattedDate(): string {
-    return this._date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long' 
+    return this._date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
     });
   }
 
@@ -89,7 +89,7 @@ export class Project {
       imageUrl: this._imageUrl,
       githubUrl: this._githubUrl,
       liveUrl: this._liveUrl,
-      date: this._date.toISOString()
+      date: this._date.toISOString(),
     };
   }
 }

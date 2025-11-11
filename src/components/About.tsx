@@ -1,6 +1,6 @@
-import React from 'react';
-import { Portfolio } from '../models';
-import '../styles/About.css';
+import React from "react";
+import { Portfolio } from "../models";
+import "../styles/About.css";
 
 interface AboutProps {
   portfolio: Portfolio;
@@ -18,15 +18,19 @@ const About: React.FC<AboutProps> = ({ portfolio }) => {
             <p className="about-description">{portfolio.bio}</p>
             <div className="about-stats">
               <div className="stat-item">
-                <span className="stat-number">{portfolio.getTotalProjects()}</span>
+                <span className="stat-number">
+                  {portfolio.getTotalProjects()}
+                </span>
                 <span className="stat-label">Projects</span>
               </div>
               <div className="stat-item">
-                <span className="stat-number">{portfolio.getTotalSkills()}</span>
+                <span className="stat-number">
+                  {portfolio.getTotalSkills()}
+                </span>
                 <span className="stat-label">Skills</span>
               </div>
               <div className="stat-item">
-                <span className="stat-number">2+</span>
+                <span className="stat-number">1+</span>
                 <span className="stat-label">Years Experience</span>
               </div>
             </div>
