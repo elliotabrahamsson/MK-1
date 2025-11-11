@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { ContactInfo } from '../models';
-import '../styles/Contact.css';
+import React, { useState } from "react";
+import { ContactInfo } from "../models";
+import "../styles/Contact.css";
+import emailjs from "emailjs-com";
 
 interface ContactProps {
   contactInfo: ContactInfo;
@@ -8,22 +9,65 @@ interface ContactProps {
 
 const Contact: React.FC<ContactProps> = ({ contactInfo }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, this would send the form data to a backend
-    alert('Thank you for your message! This is a demo, so the message was not actually sent.');
-    setFormData({ name: '', email: '', message: '' });
+
+    // 1️⃣ Skicka till dig själv
+    emailjs
+      .send(
+        "service_6gaywlo",
+        "template_o7eeipj", // Din första template
+        {
+          from_name: formData.name,
+          user_email: formData.email,
+          message: formData.message,
+        },
+        "SP8MCHciGIySgarSI"
+      )
+      .then((response) => {
+        console.log("Email sent to me successfully:", response);
+
+        // 2️⃣ Skicka auto-reply till avsändaren
+        emailjs
+          .send(
+            "service_6gaywlo",
+            "template_auto_reply", // Din nya template för auto-reply
+            {
+              to_name: formData.name, // Variabel i din auto-reply template
+              to_email: formData.email, // Viktigt: måste matcha template
+              message: formData.message,
+            },
+            "SP8MCHciGIySgarSI"
+          )
+          .then((res) => {
+            console.log("Auto-reply sent successfully:", res);
+          })
+          .catch((err) => {
+            console.error("Error sending auto-reply:", err);
+          });
+
+        alert("Thank you for your message!");
+        setFormData({ name: "", email: "", message: "" });
+      })
+      .catch((error) => {
+        console.error("Error sending email:", error);
+        alert(
+          "An error occurred while sending your message. Please try again."
+        );
+      });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -47,10 +91,10 @@ const Contact: React.FC<ContactProps> = ({ contactInfo }) => {
             <div className="social-links">
               <h4>Connect with me:</h4>
               {contactInfo.getSocialLinks().map((link) => (
-                <a 
+                <a
                   key={link.name}
-                  href={link.url} 
-                  target="_blank" 
+                  href={link.url}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="social-link"
                 >
@@ -93,7 +137,9 @@ const Contact: React.FC<ContactProps> = ({ contactInfo }) => {
                 required
               />
             </div>
-            <button type="submit" className="btn btn-primary">Send Message</button>
+            <button type="submit" className="btn btn-primary">
+              Send Message
+            </button>
           </form>
         </div>
       </div>
