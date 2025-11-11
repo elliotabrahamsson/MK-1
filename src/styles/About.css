@@ -1,6 +1,6 @@
 .about {
   padding: 6rem 2rem;
-  background: #f8f9fa;
+  background: #000000;
 }
 
 .container {
@@ -12,7 +12,7 @@
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 3rem;
-  color: #333;
+  color: #ffffff;
   position: relative;
 }
 
@@ -21,33 +21,33 @@
   display: block;
   width: 60px;
   height: 4px;
-  background: #091b6d;
+  background: #667eea;
   margin: 1rem auto 0;
 }
 
 .about-content {
-  background: white;
+  background: #1a1a1a;
   padding: 3rem;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
 }
 
 .about-text h3 {
   font-size: 2rem;
-  color: #091b6d;
+  color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
 .about-subtitle {
   font-size: 1.3rem;
-  color: #666;
+  color: #b0b0b0;
   margin-bottom: 1.5rem;
 }
 
 .about-description {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #555;
+  color: #d0d0d0;
   margin-bottom: 2rem;
 }
 
@@ -61,7 +61,7 @@
 .stat-item {
   text-align: center;
   padding: 1.5rem;
-  background: #f8f9fa;
+  background: #0a0a0a;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -71,12 +71,12 @@
 .stat-number {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #091b6d;
+  color: #667eea;
 }
 
 .stat-label {
   font-size: 1rem;
-  color: #666;
+  color: #b0b0b0;
   text-transform: uppercase;
   letter-spacing: 1px;
 }

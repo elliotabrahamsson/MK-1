@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #091b6d 0%, #5e2299 100%);
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
   color: white;
   text-align: center;
   padding: 2rem;
@@ -62,7 +62,7 @@
 
 .btn-primary {
   background: white;
-  color: #091b6d;
+  color: #000000;
 }
 
 .btn-secondary {
