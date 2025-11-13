@@ -7,9 +7,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="container">
-        <p>
-          &copy; {currentYear} Portfolio MK 1. Built with React & TypeScript.
-        </p>
+        <p>&copy; {currentYear} Portfolio MK 1. Built with care by Elliot.</p>
       </div>
     </footer>
   );

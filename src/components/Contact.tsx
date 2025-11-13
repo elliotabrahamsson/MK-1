@@ -36,7 +36,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo }) => {
         emailjs
           .send(
             "service_6gaywlo",
-            "template_auto_reply", // Din nya template för auto-reply
+            "template_v10yuoa", // Din nya template för auto-reply
             {
               to_name: formData.name, // Variabel i din auto-reply template
               to_email: formData.email, // Viktigt: måste matcha template
@@ -133,7 +133,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo }) => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                rows={5}
+                rows={7}
                 required
               />
             </div>
