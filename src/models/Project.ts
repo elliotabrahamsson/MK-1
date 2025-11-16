@@ -1,6 +1,8 @@
 /**
  * Project class - represents a portfolio project using OOP principles
  */
+
+//mallen för objektet Project
 export class Project {
   private _id: string;
   private _title: string;
@@ -11,6 +13,7 @@ export class Project {
   private _liveUrl?: string;
   private _date: Date;
 
+  // Konstruktor som bygger (konstruerar) värdena för projektet
   constructor(
     id: string,
     title: string,
@@ -32,6 +35,7 @@ export class Project {
   }
 
   // Getters
+  //ser till så värderna som är satta kan hämtas senare i projektet genom rätt anropning
   get id(): string {
     return this._id;
   }

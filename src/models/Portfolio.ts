@@ -1,9 +1,15 @@
 /**
- * Portfolio class - main portfolio manager using OOP principles
+ * Portfolio är en OOP-klass som samlar all portföljdata: namn, titel, bio, projekt, färdigheter och kontaktinfo.
+  Konstruktorn initierar fälten (projekt och skills har tomma listor som standard).
+  Getters exponerar värden; projekt och skills returneras som kopior (immutabilitet).
+  Projekthantering: addProject, removeProject(id), getProjectById, getRecentProjects(count) sorterar efter datum (senaste först).
+  Färdighetshantering: addSkill, removeSkill(namn), getSkillsByCategory(kategori).
+  Nyttometoder: getTotalProjects och getTotalSkills.
+  toJSON serialiserar hela objektet och mappar Project/Skill via deras toJSON samt inkluderar ContactInfo.toJSON
  */
-import { Project } from './Project';
-import { Skill } from './Skill';
-import { ContactInfo } from './ContactInfo';
+import { Project } from "./Project";
+import { Skill } from "./Skill";
+import { ContactInfo } from "./ContactInfo";
 
 export class Portfolio {
   private _name: string;
@@ -60,11 +66,11 @@ export class Portfolio {
   }
 
   removeProject(projectId: string): void {
-    this._projects = this._projects.filter(p => p.id !== projectId);
+    this._projects = this._projects.filter((p) => p.id !== projectId);
   }
 
   getProjectById(projectId: string): Project | undefined {
-    return this._projects.find(p => p.id === projectId);
+    return this._projects.find((p) => p.id === projectId);
   }
 
   getRecentProjects(count: number = 3): Project[] {
@@ -79,11 +85,11 @@ export class Portfolio {
   }
 
   removeSkill(skillName: string): void {
-    this._skills = this._skills.filter(s => s.name !== skillName);
+    this._skills = this._skills.filter((s) => s.name !== skillName);
   }
 
   getSkillsByCategory(category: string): Skill[] {
-    return this._skills.filter(s => s.category === category);
+    return this._skills.filter((s) => s.category === category);
   }
 
   // Utility methods
@@ -100,9 +106,9 @@ export class Portfolio {
       name: this._name,
       title: this._title,
       bio: this._bio,
-      projects: this._projects.map(p => p.toJSON()),
-      skills: this._skills.map(s => s.toJSON()),
-      contactInfo: this._contactInfo.toJSON()
+      projects: this._projects.map((p) => p.toJSON()),
+      skills: this._skills.map((s) => s.toJSON()),
+      contactInfo: this._contactInfo.toJSON(),
     };
   }
 }

@@ -13,8 +13,7 @@
 .skill-category {
   background: #1a1a1a;
   padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+  border: solid 5px white;
 }
 
 .category-title {
@@ -57,16 +56,15 @@
 }
 
 .skill-bar {
-  height: 8px;
+  height: 10px;
   background: #2a2a3e;
-  border-radius: 10px;
   overflow: hidden;
+  border: solid 1.5px white;
 }
 
 .skill-progress {
   height: 100%;
   background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-  border-radius: 10px;
   transition: width 1s ease;
 }
 

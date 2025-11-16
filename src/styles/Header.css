@@ -5,7 +5,6 @@
   right: 0;
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
   z-index: 1000;
   padding: 1rem 0;
 }
@@ -35,6 +34,7 @@
 
 .nav-item {
   margin: 0;
+  border: solid 3px white;
 }
 
 .nav-link {
@@ -50,21 +50,15 @@
 }
 
 .nav-link:hover {
-  color: #ffffff;
+  background-color: #111111;
 }
 
-.nav-link.active {
-  color: #ffffff;
+.nav-item.active {
+  background-color: #111111;
 }
 
-.nav-link.active::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 1rem;
-  right: 1rem;
-  height: 2px;
-  background: #667eea;
+.nav-item.active::after {
+  background-color: #111111;
 }
 
 @media (max-width: 768px) {

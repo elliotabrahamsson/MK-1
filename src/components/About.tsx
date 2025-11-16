@@ -2,6 +2,7 @@ import React from "react";
 import { Portfolio } from "../models";
 import "../styles/About.css";
 
+// About komponent props interface. Tar emot portfolio data.
 interface AboutProps {
   portfolio: Portfolio;
 }

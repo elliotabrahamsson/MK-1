@@ -2,15 +2,15 @@
  * Skill class - represents a skill or technology using OOP principles
  */
 export const SkillCategory = {
-  FRONTEND: 'Frontend',
-  BACKEND: 'Backend',
-  DATABASE: 'Database',
-  DEVOPS: 'DevOps',
-  TOOLS: 'Tools',
-  OTHER: 'Other'
+  FRONTEND: "Frontend",
+  BACKEND: "Backend",
+  DATABASE: "Database",
+  DEVOPS: "DevOps",
+  TOOLS: "Tools",
+  OTHER: "Other",
 } as const;
 
-export type SkillCategory = typeof SkillCategory[keyof typeof SkillCategory];
+export type SkillCategory = (typeof SkillCategory)[keyof typeof SkillCategory];
 
 export class Skill {
   private _name: string;
@@ -47,10 +47,16 @@ export class Skill {
     return this._icon;
   }
 
-  // Methods
+  //Metod som returnerar en beskrivning av kompetensnivån
   getLevelDescription(): string {
-    const levels = ['Beginner', 'Intermediate', 'Proficient', 'Advanced', 'Expert'];
-    return levels[this._level - 1] || 'Unknown';
+    const levels = [
+      "Just starting",
+      "Beginner",
+      "Knowledgeable",
+      "Comfortable",
+      "Very comfortable",
+    ];
+    return levels[this._level - 1] || "Unknown";
   }
 
   getLevelPercentage(): number {
@@ -62,8 +68,7 @@ export class Skill {
       name: this._name,
       category: this._category,
       level: this._level,
-      icon: this._icon
+      icon: this._icon,
     };
   }
 }
-

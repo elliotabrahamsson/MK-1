@@ -3,10 +3,12 @@ import { ContactInfo } from "../models";
 import "../styles/Contact.css";
 import emailjs from "emailjs-com";
 
+// Contact komponent props interface
 interface ContactProps {
   contactInfo: ContactInfo;
 }
 
+// Contact komponent useState. Satt till tomma strängar som initiala värden.
 const Contact: React.FC<ContactProps> = ({ contactInfo }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -14,32 +16,32 @@ const Contact: React.FC<ContactProps> = ({ contactInfo }) => {
     message: "",
   });
 
+  // Hantera formulärinlämning
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // 1️⃣ Skicka till dig själv
+    // Skicka e-post med EmailJS
     emailjs
       .send(
-        "service_6gaywlo",
-        "template_o7eeipj", // Din första template
+        "service_6gaywlo", // EmailJS-tjänst-ID
+        "template_o7eeipj", // EmailJS-mall-ID
         {
-          from_name: formData.name,
-          user_email: formData.email,
-          message: formData.message,
+          from_name: formData.name, //avsändarens namn
+          user_email: formData.email, // avsändarens e-post
+          message: formData.message, // meddelandeinnehåll
         },
-        "SP8MCHciGIySgarSI"
+        "SP8MCHciGIySgarSI" // Användar-ID för autentisering
       )
       .then((response) => {
-        console.log("Email sent to me successfully:", response);
+        console.log("Email sent to me successfully:", response); // Logga framgångsmeddelande
 
-        // 2️⃣ Skicka auto-reply till avsändaren
         emailjs
           .send(
             "service_6gaywlo",
-            "template_v10yuoa", // Din nya template för auto-reply
+            "template_v10yuoa",
             {
-              to_name: formData.name, // Variabel i din auto-reply template
-              to_email: formData.email, // Viktigt: måste matcha template
+              to_name: formData.name,
+              to_email: formData.email,
               message: formData.message,
             },
             "SP8MCHciGIySgarSI"
@@ -51,8 +53,8 @@ const Contact: React.FC<ContactProps> = ({ contactInfo }) => {
             console.error("Error sending auto-reply:", err);
           });
 
-        alert("Thank you for your message!");
-        setFormData({ name: "", email: "", message: "" });
+        alert("Thank you for your message!"); //Snabb alert för användaren att det har skickats. Ska göra en custom
+        setFormData({ name: "", email: "", message: "" }); // Återställ formuläret
       })
       .catch((error) => {
         console.error("Error sending email:", error);
@@ -62,6 +64,7 @@ const Contact: React.FC<ContactProps> = ({ contactInfo }) => {
       });
   };
 
+  // Hantera formulärändringar
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
